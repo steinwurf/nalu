@@ -1,0 +1,7 @@
+# encoding: utf-8
+
+bld.program(
+    features='cxx test',
+    source=['n4lu_tests.cpp'] + bld.path.ant_glob('src/*.cpp'),
+    target='n4lu_tests',
+    use=['n4lu_includes', 'gtest'])
