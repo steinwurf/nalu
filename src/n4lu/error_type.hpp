@@ -14,6 +14,7 @@ namespace n4lu
     /// problem with it - take it up with him :)
     ///
     /// http://phk.freebsd.dk/time/20141116.html
+    ///
     enum class error_type
     {
         #define N4LU_ERROR_TAG(id,msg) id,
