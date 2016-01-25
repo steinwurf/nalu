@@ -6,7 +6,6 @@ VERSION = '0.0.0'
 
 import waflib.extras.wurf_options
 
-
 def options(opt):
 
     opt.load('wurf_common_tools')
