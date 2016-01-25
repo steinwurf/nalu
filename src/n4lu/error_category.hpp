@@ -9,6 +9,7 @@
 
 #include <cassert>
 #include <system_error>
+#include <string>
 
 #include "error_type.hpp"
 
