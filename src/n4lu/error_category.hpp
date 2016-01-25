@@ -9,6 +9,7 @@
 
 #include <cassert>
 #include <system_error>
+#include <string>
 
 #include "error_type.hpp"
 
@@ -30,7 +31,8 @@ namespace n4lu
         {
             switch(static_cast<error_type>(ev))
             {
-                #define N4LU_ERROR_TAG(id,msg) case error_type::id: return msg;
+                #define N4LU_ERROR_TAG(id,msg)    \
+                    case error_type::id: return std::string(msg);
                 #include "error_tags.hpp"
                 #undef N4LU_ERROR_TAG
             }

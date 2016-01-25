@@ -19,7 +19,7 @@ namespace n4lu
         switch(type)
         {
             #define N4LU_NALU_TYPE_TAG(value,id,msg,vcl)      \
-                case nalu_type::id: return msg;
+                case nalu_type::id: return std::string(msg);
             #include "nalu_type_tags.hpp"
             #undef N4LU_NALU_TYPE_TAG
         }
