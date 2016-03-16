@@ -7,14 +7,14 @@
 
 #pragma once
 
-#include <system_error>
-
 #include "error_type.hpp"
-#include "make_error_code.hpp"
+#include "error_category.hpp"
 
-namespace std
+namespace nalu
 {
-    /// Reference: http://bit.ly/1RCq7ts
-    template <>
-    struct is_error_code_enum<n4lu::error_type> : public true_type {};
+    /// @return An error_code for nalu errors
+    inline std::error_code make_error_code(error_type e)
+    {
+        return std::error_code(static_cast<int>(e), error_category::instance());
+    }
 }

@@ -5,7 +5,7 @@
 // The copyright notice above does not evidence any
 // actual or intended publication of such source code.
 
-#include <n4lu/to_annex_b_nalu.hpp>
+#include <nalu/to_annex_b_nalu.hpp>
 
 #include <gtest/gtest.h>
 
@@ -17,7 +17,7 @@ TEST(test_to_annex_b_nalu, single_nalu)
     static const uint8_t nalu_data[] =
         { 0x00, 0x00, 0x00, 0x01, 0x12, 0xab };
 
-    auto nalu = n4lu::to_annex_b_nalu(nalu_data, sizeof(nalu_data));
+    auto nalu = nalu::to_annex_b_nalu(nalu_data, sizeof(nalu_data));
 
     EXPECT_EQ(nalu.m_data, nalu_data);
     EXPECT_EQ(nalu.m_size, 6U);
@@ -34,12 +34,12 @@ TEST(test_to_annex_b_nalu, no_nalu_data)
 
     try
     {
-        auto nalu = n4lu::to_annex_b_nalu(nalu_data, sizeof(nalu_data));
+        auto nalu = nalu::to_annex_b_nalu(nalu_data, sizeof(nalu_data));
         (void) nalu;
     }
     catch(std::system_error& error)
     {
-        EXPECT_EQ(n4lu::error_type::no_annex_b_nalu_data_found, error.code());
+        EXPECT_EQ(nalu::error_type::no_annex_b_nalu_data_found, error.code());
     }
 }
 
@@ -50,11 +50,11 @@ TEST(test_to_annex_b_nalu, garbage_nalu_data)
 
     try
     {
-        auto nalu = n4lu::to_annex_b_nalu(nalu_data, sizeof(nalu_data));
+        auto nalu = nalu::to_annex_b_nalu(nalu_data, sizeof(nalu_data));
         (void) nalu;
     }
     catch(std::system_error& error)
     {
-        EXPECT_EQ(n4lu::error_type::garbage_found_in_nalu_data, error.code());
+        EXPECT_EQ(nalu::error_type::garbage_found_in_nalu_data, error.code());
     }
 }

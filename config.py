@@ -5,7 +5,7 @@ import urllib2
 import traceback
 import sys
 
-project_name = 'n4lu'
+project_name = 'nalu'
 project_dependencies = \
     [
         'waf-tools',

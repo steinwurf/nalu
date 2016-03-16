@@ -13,7 +13,7 @@
 #include "annex_b_nalu_parser.hpp"
 #include "error.hpp"
 
-namespace n4lu
+namespace nalu
 {
     /// Finds the NALUs stored in the memory region.
     ///
