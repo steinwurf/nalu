@@ -13,7 +13,7 @@
 #include "nalu_type_to_string.hpp"
 #include "nalu_type.hpp"
 
-namespace n4lu
+namespace nalu
 {
     /// Small struct representing an Annex B NALU
     struct annex_b_nalu
@@ -52,7 +52,7 @@ namespace n4lu
     {
         assert(nalu);
 
-        os << "n4lu::annex_b_nalu: m_data = " << (void*) nalu.m_data << " "
+        os << "nalu::annex_b_nalu: m_data = " << (void*) nalu.m_data << " "
            << "m_size = " << nalu.m_size << " m_startcode_size = "
            << nalu.m_startcode_size << " (type = "
            << nalu_type_to_string(nalu.m_type) << ")";

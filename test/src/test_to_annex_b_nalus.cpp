@@ -5,7 +5,7 @@
 // The copyright notice above does not evidence any
 // actual or intended publication of such source code.
 
-#include <n4lu/to_annex_b_nalus.hpp>
+#include <nalu/to_annex_b_nalus.hpp>
 
 #include <gtest/gtest.h>
 
@@ -17,7 +17,7 @@ TEST(test_to_annex_b_nalus, single_nalu)
     static const uint8_t nalu_data[] =
         { 0x00, 0x00, 0x00, 0x01, 0x12, 0xab };
 
-    auto nalus = n4lu::to_annex_b_nalus(nalu_data, sizeof(nalu_data));
+    auto nalus = nalu::to_annex_b_nalus(nalu_data, sizeof(nalu_data));
 
     EXPECT_EQ(nalus.size(), 1U);
 
@@ -37,7 +37,7 @@ TEST(test_to_annex_b_nalus, multiple_nalu)
           0x00, 0x00, 0x01, 0x12, 0xab,        // <- 3 byte start code
           0x00, 0x00, 0x00, 0x01, 0x12, 0xab};
 
-    auto nalus = n4lu::to_annex_b_nalus(nalu_data, sizeof(nalu_data));
+    auto nalus = nalu::to_annex_b_nalus(nalu_data, sizeof(nalu_data));
 
     EXPECT_EQ(nalus.size(), 4U);
 
@@ -76,7 +76,7 @@ TEST(test_to_annex_b_nalus, alternate_startcode_size)
           0x00, 0x00, 0x01, 0x12, 0xab,        // <- 3 byte start code
           0x00, 0x00, 0x00, 0x01, 0x12, 0xab};
 
-    auto nalus = n4lu::to_annex_b_nalus(nalu_data, sizeof(nalu_data));
+    auto nalus = nalu::to_annex_b_nalus(nalu_data, sizeof(nalu_data));
 
     EXPECT_EQ(nalus.size(), 4U);
 
@@ -105,11 +105,11 @@ TEST(test_to_annex_b_nalus, no_nalu_data)
 
     try
     {
-        auto nalus = n4lu::to_annex_b_nalus(nalu_data, sizeof(nalu_data));
+        auto nalus = nalu::to_annex_b_nalus(nalu_data, sizeof(nalu_data));
     }
     catch(std::system_error& error)
     {
-        EXPECT_EQ(n4lu::error_type::no_annex_b_nalu_data_found, error.code());
+        EXPECT_EQ(nalu::error_type::no_annex_b_nalu_data_found, error.code());
     }
 }
 
@@ -121,10 +121,10 @@ TEST(test_to_annex_b_nalus, garbage_nalu_data)
 
     try
     {
-        auto nalus = n4lu::to_annex_b_nalus(nalu_data, sizeof(nalu_data));
+        auto nalus = nalu::to_annex_b_nalus(nalu_data, sizeof(nalu_data));
     }
     catch(std::system_error& error)
     {
-        EXPECT_EQ(n4lu::error_type::garbage_found_in_nalu_data, error.code());
+        EXPECT_EQ(nalu::error_type::garbage_found_in_nalu_data, error.code());
     }
 }

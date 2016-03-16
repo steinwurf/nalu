@@ -7,7 +7,7 @@
 
 #pragma once
 
-namespace n4lu
+namespace nalu
 {
     /// Small helper function which throws an exception if the error code
     /// passed indicates an error.

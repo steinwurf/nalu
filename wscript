@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # encoding: utf-8
 
-APPNAME = 'n4lu'
+APPNAME = 'nalu'
 VERSION = '1.0.0'
 
 import waflib.extras.wurf_options
@@ -47,11 +47,11 @@ def build(bld):
 
     bld.env.append_unique(
         'DEFINES_STEINWURF_VERSION',
-        'STEINWURF_N4LU_VERSION="{}"'.format(
+        'STEINWURF_NALU_VERSION="{}"'.format(
             VERSION))
 
-    # Export n4lu includes
-    bld(name='n4lu_includes',
+    # Export nalu includes
+    bld(name='nalu_includes',
         includes='./src',
         export_includes='./src',
         use=['sak_includes'])

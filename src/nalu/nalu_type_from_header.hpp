@@ -9,7 +9,7 @@
 
 #include "nalu_type.hpp"
 
-namespace n4lu
+namespace nalu
 {
     /// From RFC 6184 (https://tools.ietf.org/html/rfc6184#section-1.3)
     ///

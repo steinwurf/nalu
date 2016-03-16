@@ -13,7 +13,7 @@
 
 #include "error_type.hpp"
 
-namespace n4lu
+namespace nalu
 {
     /// The error category
     class error_category : public std::error_category
@@ -23,7 +23,7 @@ namespace n4lu
         /// @return The name of the category
         const char* name() const noexcept override
         {
-            return "n4lu";
+            return "nalu";
         }
 
         /// @return Human readable message corresponding to an error code
@@ -31,10 +31,10 @@ namespace n4lu
         {
             switch(static_cast<error_type>(ev))
             {
-                #define N4LU_ERROR_TAG(id,msg)    \
+                #define nalu_ERROR_TAG(id,msg)    \
                     case error_type::id: return std::string(msg);
                 #include "error_tags.hpp"
-                #undef N4LU_ERROR_TAG
+                #undef nalu_ERROR_TAG
             }
 
             assert(0 && "Invalid error code received!");
