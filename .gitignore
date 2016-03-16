@@ -14,10 +14,6 @@
 # Python
 *.pyc
 
-# Compiled Doxygen documentation
-/doxygen/html
-/doxygen/latex
-
 # For projects that use Waf for building: http://code.google.com/p/waf/
 waf-*
 .waf-*
@@ -37,9 +33,6 @@ GTAGS
 *.#*
 *~
 
-# compiled documentation
-*.pdf
-
 #Eclipse ignore
 .cproject
 .project
@@ -57,8 +50,3 @@ local.properties
 *.opensdf
 *.log
 VSProjects
-
-# Benchmark output
-figures_database
-figures_database_detailed
-figures_local
