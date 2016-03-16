@@ -47,7 +47,7 @@ def build(bld):
 
     bld.env.append_unique(
         'DEFINES_STEINWURF_VERSION',
-        'STEINWURF_nalu_VERSION="{}"'.format(
+        'STEINWURF_NALU_VERSION="{}"'.format(
             VERSION))
 
     # Export nalu includes
