@@ -13,7 +13,7 @@
 #include "annex_b_nalu_parser.hpp"
 #include "error.hpp"
 
-namespace n4lu
+namespace nalu
 {
     /// Creates an Annex B NALU from the memory region.
     ///

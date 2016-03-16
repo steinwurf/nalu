@@ -5,20 +5,20 @@
 // The copyright notice above does not evidence any
 // actual or intended publication of such source code.
 
-#include <n4lu/annex_b_nalu_parser.hpp>
+#include <nalu/annex_b_nalu_parser.hpp>
 
 #include <type_traits>
 #include <gtest/gtest.h>
 
 /// Test that we terminate if we find nothing
-TEST(test_n4lu_annexb_nalu_parser, no_nalus)
+TEST(test_nalu_annexb_nalu_parser, no_nalus)
 {
     static const uint8_t nalu_data[] =
         { 0x00, 0x01, 0x00, 0x01, 0x12, 0xab,
           0x05, 0x00, 0x07, 0x01, 0x12, 0xab,
           0x00, 0x00, 0x06, 0x01, 0x12, 0xab };
 
-    n4lu::annex_b_nalu_parser parser(nalu_data, sizeof(nalu_data));
+    nalu::annex_b_nalu_parser parser(nalu_data, sizeof(nalu_data));
 
     // The first NALU at that start of the data
     EXPECT_TRUE(parser.at_end());
@@ -27,12 +27,12 @@ TEST(test_n4lu_annexb_nalu_parser, no_nalus)
 /// In the following we test whether our parse can correctly identify the
 /// different NALUs produced by an Annex B encoder. We check we can find
 /// the right address of the NALU plus the size of the start code.
-TEST(test_n4lu_annexb_nalu_parser, single_nalu)
+TEST(test_nalu_annexb_nalu_parser, single_nalu)
 {
     static const uint8_t nalu_data[] =
         { 0x00, 0x00, 0x00, 0x01, 0x12, 0xab };
 
-    n4lu::annex_b_nalu_parser parser(nalu_data, sizeof(nalu_data));
+    nalu::annex_b_nalu_parser parser(nalu_data, sizeof(nalu_data));
 
     // The first NALU at that start of the data
     EXPECT_EQ(parser.nalu(), nalu_data);
@@ -43,7 +43,7 @@ TEST(test_n4lu_annexb_nalu_parser, single_nalu)
 }
 
 /// Test that we can find multiple NALUs
-TEST(test_n4lu_annexb_nalu_parser, multiple_nalu)
+TEST(test_nalu_annexb_nalu_parser, multiple_nalu)
 {
     static const uint8_t nalu_data[] =
         { 0x00, 0x00, 0x00, 0x01, 0x12, 0xab,
@@ -51,7 +51,7 @@ TEST(test_n4lu_annexb_nalu_parser, multiple_nalu)
           0x00, 0x00, 0x01, 0x12, 0xab,        // <- 3 byte start code
           0x00, 0x00, 0x00, 0x01, 0x12, 0xab};
 
-    n4lu::annex_b_nalu_parser parser(nalu_data, sizeof(nalu_data));
+    nalu::annex_b_nalu_parser parser(nalu_data, sizeof(nalu_data));
 
     // The first NALU at that start of the data
     EXPECT_EQ(parser.nalu(), nalu_data);
@@ -80,7 +80,7 @@ TEST(test_n4lu_annexb_nalu_parser, multiple_nalu)
 }
 
 /// Test that we can alternate NALU startcode size
-TEST(test_n4lu_annexb_nalu_parser, alternate_startcode_size)
+TEST(test_nalu_annexb_nalu_parser, alternate_startcode_size)
 {
     static const uint8_t nalu_data[] =
         { 0x00, 0x00, 0x01, 0x12, 0xab,
@@ -88,7 +88,7 @@ TEST(test_n4lu_annexb_nalu_parser, alternate_startcode_size)
           0x00, 0x00, 0x01, 0x12, 0xab,
           0x00, 0x00, 0x00, 0x01, 0x12, 0xab};
 
-    n4lu::annex_b_nalu_parser parser(nalu_data, sizeof(nalu_data));
+    nalu::annex_b_nalu_parser parser(nalu_data, sizeof(nalu_data));
 
 
     EXPECT_EQ(parser.startcode_size(), 3U);

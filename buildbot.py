@@ -6,7 +6,7 @@ import sys
 import json
 import subprocess
 
-project_name = 'n4lu'
+project_name = 'nalu'
 
 
 def run_command(args):

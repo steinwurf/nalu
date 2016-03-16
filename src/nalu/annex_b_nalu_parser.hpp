@@ -10,7 +10,7 @@
 #include <cassert>
 #include <cstdint>
 
-namespace n4lu
+namespace nalu
 {
     /// Simple Annex B NALU parser i.e. finds the NALUs in some memory buffer
     ///

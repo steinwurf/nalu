@@ -1,15 +1,15 @@
 ====
-n4lu
+nalu
 ====
 
-The n4lu project contains helper functionality for parsing Annex B H264
+The nalu project contains helper functionality for parsing Annex B H264
 streams.
 
 The main functionality is located in the:
 
-* ``src/n4lu/find_annex_b_nalu.hpp``
-* ``src/n4lu/find_annex_b_nalus.hpp``
-* ``src/n4lu/annex_b_nalu.hpp``
+* ``src/nalu/find_annex_b_nalu.hpp``
+* ``src/nalu/find_annex_b_nalus.hpp``
+* ``src/nalu/annex_b_nalu.hpp``
 
 Usage
 =====
