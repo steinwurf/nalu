@@ -6,7 +6,7 @@ every change, see the Git log.
 
 Latest
 ------
-* tbd
+* Minor: Improve nalu tags.
 
 2.0.0
 -----
