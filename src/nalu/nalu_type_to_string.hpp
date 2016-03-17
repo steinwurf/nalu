@@ -18,10 +18,10 @@ namespace nalu
     {
         switch(type)
         {
-            #define nalu_NALU_TYPE_TAG(value,id,msg,vcl)      \
+            #define NALU_TYPE_TAG(value,id,msg,vcl)      \
                 case nalu_type::id: return std::string(msg);
             #include "nalu_type_tags.hpp"
-            #undef nalu_NALU_TYPE_TAG
+            #undef NALU_TYPE_TAG
         }
 
         assert(0 && "Invalid NALU type received!");
