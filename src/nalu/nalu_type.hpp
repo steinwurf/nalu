@@ -9,15 +9,15 @@
 
 namespace nalu
 {
-    /// Enumeration of different error codes, we use a bit of macro
+    /// Enumeration of different nalu types, we use a bit of macro
     /// uglyness to makes this easy. PHK says this is ok so if you have a
     /// problem with it - take it up with him :)
     ///
     /// http://phk.freebsd.dk/time/20141116.html
     enum class nalu_type
     {
-        #define nalu_NALU_TYPE_TAG(value,id,msg,vcl) id=value,
+        #define NALU_TYPE_TAG(value,id,msg,vcl) id=value,
         #include "nalu_type_tags.hpp"
-        #undef nalu_NALU_TYPE_TAG
+        #undef NALU_TYPE_TAG
     };
 }
