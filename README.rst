@@ -5,7 +5,7 @@ nalu
 The nalu project contains helper functionality for parsing Annex B H264
 streams.
 
-The main functionality is located in the:
+The main functionality is located in these header files:
 
 * ``src/nalu/find_annex_b_nalu.hpp``
 * ``src/nalu/find_annex_b_nalus.hpp``
