@@ -14,6 +14,6 @@ The main functionality is located in these header files:
 Usage
 =====
 
-The library is header only so you just need to set the include path to use it.
+The library is header-only, so you just need to set the include path to use it.
 
 See the unit tests in ``test/src/`` for usage/API examples.
