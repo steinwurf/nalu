@@ -82,7 +82,7 @@ def install(properties):
 
 
 def coverage_settings(options):
-    options['required_line_coverage'] = 90.1
+    options['required_line_coverage'] = 96.6
 
 
 def main():
