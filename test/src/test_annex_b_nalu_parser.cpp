@@ -32,7 +32,9 @@ TEST(test_nalu_annexb_nalu_parser, no_nalus)
 TEST(test_nalu_annexb_nalu_parser, single_nalu)
 {
     static const uint8_t nalu_data[] =
-        { 0x00, 0x00, 0x00, 0x01, 0x12, 0xab };
+    {
+        0x00, 0x00, 0x00, 0x01, 0x12, 0xab
+    };
 
     nalu::annex_b_nalu_parser parser(nalu_data, sizeof(nalu_data));
 
