@@ -29,12 +29,12 @@ namespace nalu
         /// @return Human readable message corresponding to an error code
         std::string message(int ev) const override
         {
-            switch(static_cast<error_type>(ev))
+            switch (static_cast<error_type>(ev))
             {
-                #define nalu_ERROR_TAG(id,msg)    \
+#define nalu_ERROR_TAG(id,msg)    \
                     case error_type::id: return std::string(msg);
-                #include "error_tags.hpp"
-                #undef nalu_ERROR_TAG
+#include "error_tags.hpp"
+#undef nalu_ERROR_TAG
             }
 
             assert(0 && "Invalid error code received!");

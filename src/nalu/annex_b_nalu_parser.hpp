@@ -45,11 +45,11 @@ namespace nalu
         ///
         /// @param start The start of the memory buffer we are parsing
         /// @param size The size of the memory buffer in bytes
-        annex_b_nalu_parser(const uint8_t* start, uint32_t size)
-            : m_start(start),
-              m_end(start + size),
-              m_cursor(start),
-              m_startcode_size(0)
+        annex_b_nalu_parser(const uint8_t* start, uint32_t size) :
+            m_start(start),
+            m_end(start + size),
+            m_cursor(start),
+            m_startcode_size(0)
         {
             assert(m_start);
             assert(m_end);
@@ -74,7 +74,7 @@ namespace nalu
             // start from the beginning
             m_cursor += m_startcode_size;
 
-            for(;;++m_cursor)
+            for (;; ++m_cursor)
             {
                 // Looking for the 3 byte start code, so there must be at
                 // least 4 bytes remaining
@@ -101,7 +101,7 @@ namespace nalu
                 if (m_end - m_cursor < 5)
                     break;
 
-                if(m_cursor[3] == 0x01)
+                if (m_cursor[3] == 0x01)
                 {
                     m_startcode_size = 4;
                     return;

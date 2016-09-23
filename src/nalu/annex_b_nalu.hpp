@@ -35,7 +35,7 @@ namespace nalu
         }
 
         /// Pointer to the NALU data
-        const uint8_t *m_data = nullptr;
+        const uint8_t* m_data = nullptr;
 
         /// Size of NALU in bytes
         uint32_t m_size = 0;

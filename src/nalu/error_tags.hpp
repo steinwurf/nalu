@@ -9,8 +9,8 @@ nalu_ERROR_TAG(unused,
                "Reserved! Errors should never be zero :)")
 
 nalu_ERROR_TAG(no_annex_b_nalu_data_found,
-              "No Annex B NALU data found")
+               "No Annex B NALU data found")
 
 nalu_ERROR_TAG(garbage_found_in_nalu_data,
-              "Garbage data was found in the NALU data, the Annex B "
-              "NALU must start with a 3 or 4 byte startcode")
+               "Garbage data was found in the NALU data, the Annex B "
+               "NALU must start with a 3 or 4 byte startcode")
