@@ -115,7 +115,7 @@ TEST(test_to_annex_b_nalus, no_nalu_data)
     {
         auto nalus = nalu::to_annex_b_nalus(nalu_data, sizeof(nalu_data));
     }
-    catch(std::system_error& error)
+    catch (std::system_error& error)
     {
         EXPECT_EQ(nalu::error_type::no_annex_b_nalu_data_found, error.code());
     }
@@ -133,7 +133,7 @@ TEST(test_to_annex_b_nalus, garbage_nalu_data)
     {
         auto nalus = nalu::to_annex_b_nalus(nalu_data, sizeof(nalu_data));
     }
-    catch(std::system_error& error)
+    catch (std::system_error& error)
     {
         EXPECT_EQ(nalu::error_type::garbage_found_in_nalu_data, error.code());
     }

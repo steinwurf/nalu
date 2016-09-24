@@ -36,7 +36,7 @@ NALU_TYPE_TAG(13, sps_extension, "Sequence parameter set extension", "non-VCL")
 NALU_TYPE_TAG(14, prefix_nal_unit, "Prefix NAL unit", "non-VCL")
 
 NALU_TYPE_TAG(15, subset_sequence_parameter_set,
-    "Subset sequence parameter set", "non-VCL")
+              "Subset sequence parameter set", "non-VCL")
 
 NALU_TYPE_TAG(16, depth_parameter_set, "Depth parameter set", "non-VCL")
 
@@ -45,12 +45,12 @@ NALU_TYPE_TAG(17, reserved_17, "Reserved 17", "non-VCL")
 NALU_TYPE_TAG(18, reserved_18, "Reserved 18", "non-VCL")
 
 NALU_TYPE_TAG(19, auxiliary_slice,
-    "Coded slice of an auxiliary coded picture without partitioning", "non-VCL")
+              "Coded slice of an auxiliary coded picture without partitioning", "non-VCL")
 
 NALU_TYPE_TAG(20, extension, "Coded slice extension", "non-VCL")
 
 NALU_TYPE_TAG(21, depth_view_slice,
-    "Coded slice extension for depth view components", "non-VCL")
+              "Coded slice extension for depth view components", "non-VCL")
 
 NALU_TYPE_TAG(22, reserved22, "Reserved 22", "non-VCL")
 

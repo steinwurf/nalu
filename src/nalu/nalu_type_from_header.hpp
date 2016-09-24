@@ -11,22 +11,22 @@
 
 namespace nalu
 {
-    /// From RFC 6184 (https://tools.ietf.org/html/rfc6184#section-1.3)
-    ///
-    /// For convenience, the format of the NAL unit header is
-    /// reprinted below:
-    ///
-    ///      +---------------+
-    ///      |0|1|2|3|4|5|6|7|
-    ///      +-+-+-+-+-+-+-+-+
-    ///      |F|NRI|  Type   |
-    ///      +---------------+
-    ///
-    /// To extract type we use bitmask: 0001 1111 = 0x1F
-    ///
-    inline nalu_type nalu_type_from_header(uint8_t nalu_header)
-    {
-        uint8_t type = nalu_header & 0x1F;
-        return static_cast<nalu_type>(type);
-    }
+/// From RFC 6184 (https://tools.ietf.org/html/rfc6184#section-1.3)
+///
+/// For convenience, the format of the NAL unit header is
+/// reprinted below:
+///
+///      +---------------+
+///      |0|1|2|3|4|5|6|7|
+///      +-+-+-+-+-+-+-+-+
+///      |F|NRI|  Type   |
+///      +---------------+
+///
+/// To extract type we use bitmask: 0001 1111 = 0x1F
+///
+inline nalu_type nalu_type_from_header(uint8_t nalu_header)
+{
+    uint8_t type = nalu_header & 0x1F;
+    return static_cast<nalu_type>(type);
+}
 }
