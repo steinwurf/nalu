@@ -9,16 +9,16 @@
 
 namespace nalu
 {
-    /// Enumeration of different error codes, we use a bit of macro
-    /// uglyness to makes this easy. PHK says this is ok so if you have a
-    /// problem with it - take it up with him :)
-    ///
-    /// http://phk.freebsd.dk/time/20141116.html
-    ///
-    enum class error_type
-    {
+/// Enumeration of different error codes, we use a bit of macro
+/// uglyness to makes this easy. PHK says this is ok so if you have a
+/// problem with it - take it up with him :)
+///
+/// http://phk.freebsd.dk/time/20141116.html
+///
+enum class error_type
+{
 #define nalu_ERROR_TAG(id,msg) id,
 #include "error_tags.hpp"
 #undef nalu_ERROR_TAG
-    };
+};
 }

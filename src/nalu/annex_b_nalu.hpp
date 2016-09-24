@@ -15,48 +15,48 @@
 
 namespace nalu
 {
-    /// Small struct representing an Annex B NALU
-    struct annex_b_nalu
+/// Small struct representing an Annex B NALU
+struct annex_b_nalu
+{
+    /// @return True if the NALU is valid otherwise false
+    operator bool() const
     {
-        /// @return True if the NALU is valid otherwise false
-        operator bool() const
-        {
-            if (m_data == nullptr)
-                return false;
+        if (m_data == nullptr)
+            return false;
 
-            if (m_size == 0)
-                return false;
+        if (m_size == 0)
+            return false;
 
-            // A valid start code is either 3 or 4 bytes
-            if (m_startcode_size != 3 && m_startcode_size != 4)
-                return false;
+        // A valid start code is either 3 or 4 bytes
+        if (m_startcode_size != 3 && m_startcode_size != 4)
+            return false;
 
-            return true;
-        }
-
-        /// Pointer to the NALU data
-        const uint8_t* m_data = nullptr;
-
-        /// Size of NALU in bytes
-        uint32_t m_size = 0;
-
-        /// Size of the Annex B start code
-        uint32_t m_startcode_size = 0;
-
-        /// The type of the NALU
-        nalu_type m_type;
-    };
-
-    /// Output operator for the annex_b_nalu struct
-    inline std::ostream& operator<<(std::ostream& os, const annex_b_nalu& nalu)
-    {
-        assert(nalu);
-
-        os << "nalu::annex_b_nalu: m_data = " << (void*) nalu.m_data << " "
-           << "m_size = " << nalu.m_size << " m_startcode_size = "
-           << nalu.m_startcode_size << " (type = "
-           << nalu_type_to_string(nalu.m_type) << ")";
-
-        return os;
+        return true;
     }
+
+    /// Pointer to the NALU data
+    const uint8_t* m_data = nullptr;
+
+    /// Size of NALU in bytes
+    uint32_t m_size = 0;
+
+    /// Size of the Annex B start code
+    uint32_t m_startcode_size = 0;
+
+    /// The type of the NALU
+    nalu_type m_type;
+};
+
+/// Output operator for the annex_b_nalu struct
+inline std::ostream& operator<<(std::ostream& os, const annex_b_nalu& nalu)
+{
+    assert(nalu);
+
+    os << "nalu::annex_b_nalu: m_data = " << (void*) nalu.m_data << " "
+       << "m_size = " << nalu.m_size << " m_startcode_size = "
+       << nalu.m_startcode_size << " (type = "
+       << nalu_type_to_string(nalu.m_type) << ")";
+
+    return os;
+}
 }

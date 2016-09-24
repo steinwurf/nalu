@@ -13,18 +13,18 @@
 
 namespace nalu
 {
-    /// @return Human readable message corresponding to an error code
-    inline std::string nalu_type_to_string(nalu_type type)
+/// @return Human readable message corresponding to an error code
+inline std::string nalu_type_to_string(nalu_type type)
+{
+    switch (type)
     {
-        switch (type)
-        {
 #define NALU_TYPE_TAG(value,id,msg,vcl)      \
                 case nalu_type::id: return std::string(msg);
 #include "nalu_type_tags.hpp"
 #undef NALU_TYPE_TAG
-        }
-
-        assert(0 && "Invalid NALU type received!");
-        return "";
     }
+
+    assert(0 && "Invalid NALU type received!");
+    return "";
+}
 }
