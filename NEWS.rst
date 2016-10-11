@@ -6,7 +6,7 @@ every change, see the Git log.
 
 Latest
 ------
-* tbd
+* Major: Removed sak dependency.
 
 2.1.0
 -----
