@@ -6,6 +6,12 @@ every change, see the Git log.
 
 Latest
 ------
+* tbd
+
+3.0.0
+-----
+* Major: Upgrade to waf-tools 4
+* Minor: Upgrade to gtest 4
 * Major: Removed sak dependency.
 
 2.1.0
