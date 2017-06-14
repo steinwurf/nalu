@@ -71,7 +71,7 @@ to_annex_b_nalus(const uint8_t* data, uint32_t size,
         }
 
         auto type = type_from_header(nalu_start[start_code_size]);
-        auto size = nalu_end - nalu_start;
+        uint32_t size = nalu_end - nalu_start;
 
         nalus.emplace_back(nalu_start, size, start_code_size, type);
 
