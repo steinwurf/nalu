@@ -28,7 +28,7 @@ TEST(test_to_annex_b_nalus, single_nalu)
 
     EXPECT_EQ(nalu_0.m_data, nalu_data);
     EXPECT_EQ(nalu_0.m_size, 6U);
-    EXPECT_EQ(nalu_0.m_startcode_size, 4U);
+    EXPECT_EQ(nalu_0.m_start_code_size, 4U);
 }
 
 TEST(test_to_annex_b_nalus, multiple_nalu)
@@ -50,25 +50,25 @@ TEST(test_to_annex_b_nalus, multiple_nalu)
 
     EXPECT_EQ(nalu_0.m_data, nalu_data);
     EXPECT_EQ(nalu_0.m_size, 6U);
-    EXPECT_EQ(nalu_0.m_startcode_size, 4U);
+    EXPECT_EQ(nalu_0.m_start_code_size, 4U);
 
     auto nalu_1 = nalus[1];
 
     EXPECT_EQ(nalu_1.m_data, nalu_data + 6);
     EXPECT_EQ(nalu_1.m_size, 7U);
-    EXPECT_EQ(nalu_1.m_startcode_size, 4U);
+    EXPECT_EQ(nalu_1.m_start_code_size, 4U);
 
     auto nalu_2 = nalus[2];
 
     EXPECT_EQ(nalu_2.m_data, nalu_data + 13);
     EXPECT_EQ(nalu_2.m_size, 5U);
-    EXPECT_EQ(nalu_2.m_startcode_size, 3U);
+    EXPECT_EQ(nalu_2.m_start_code_size, 3U);
 
     auto nalu_3 = nalus[3];
 
     EXPECT_EQ(nalu_3.m_data, nalu_data + 18);
     EXPECT_EQ(nalu_3.m_size, 6U);
-    EXPECT_EQ(nalu_3.m_startcode_size, 4U);
+    EXPECT_EQ(nalu_3.m_start_code_size, 4U);
 }
 
 
@@ -88,16 +88,16 @@ TEST(test_to_annex_b_nalus, alternate_startcode_size)
 
     // Lets check the different NALUs
     auto nalu_0 = nalus[0];
-    EXPECT_EQ(nalu_0.m_startcode_size, 3U);
+    EXPECT_EQ(nalu_0.m_start_code_size, 3U);
 
     auto nalu_1 = nalus[1];
-    EXPECT_EQ(nalu_1.m_startcode_size, 4U);
+    EXPECT_EQ(nalu_1.m_start_code_size, 4U);
 
     auto nalu_2 = nalus[2];
-    EXPECT_EQ(nalu_2.m_startcode_size, 3U);
+    EXPECT_EQ(nalu_2.m_start_code_size, 3U);
 
     auto nalu_3 = nalus[3];
-    EXPECT_EQ(nalu_3.m_startcode_size, 4U);
+    EXPECT_EQ(nalu_3.m_start_code_size, 4U);
 }
 
 

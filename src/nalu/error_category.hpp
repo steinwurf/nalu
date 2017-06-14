@@ -31,10 +31,10 @@ public:
     {
         switch (static_cast<error_type>(ev))
         {
-#define nalu_ERROR_TAG(id,msg)    \
+#define NALU_ERROR_TAG(id,msg)    \
                     case error_type::id: return std::string(msg);
 #include "error_tags.hpp"
-#undef nalu_ERROR_TAG
+#undef NALU_ERROR_TAG
         }
 
         assert(0 && "Invalid error code received!");

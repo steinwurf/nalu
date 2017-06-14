@@ -14,10 +14,10 @@ namespace nalu
 /// problem with it - take it up with him :)
 ///
 /// http://phk.freebsd.dk/time/20141116.html
-enum class nalu_type
+enum class type
 {
 #define NALU_TYPE_TAG(value,id,msg,vcl) id=value,
-#include "nalu_type_tags.hpp"
+#include "type_tags.hpp"
 #undef NALU_TYPE_TAG
 };
 }

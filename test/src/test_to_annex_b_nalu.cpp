@@ -21,9 +21,9 @@ TEST(test_to_annex_b_nalu, single_nalu)
 
     auto nalu = nalu::to_annex_b_nalu(nalu_data, sizeof(nalu_data));
 
-    EXPECT_EQ(nalu.m_data, nalu_data);
-    EXPECT_EQ(nalu.m_size, 6U);
-    EXPECT_EQ(nalu.m_startcode_size, 4U);
+    EXPECT_EQ(nalu->m_data, nalu_data);
+    EXPECT_EQ(nalu->m_size, 6U);
+    EXPECT_EQ(nalu->m_start_code_size, 4U);
 }
 
 TEST(test_to_annex_b_nalu, no_nalu_data)
