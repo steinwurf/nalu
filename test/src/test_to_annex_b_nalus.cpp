@@ -19,7 +19,7 @@ TEST(test_to_annex_b_nalus, single_nalu)
             0x00, 0x00, 0x00, 0x01, 0x12, 0xab
         };
 
-    auto nalus = nalu::to_annex_b_nalus(nalu_data, sizeof(nalu_data));
+    auto nalus = nalu::to_annex_b_nalus(nalu_data, (uint32_t)sizeof(nalu_data));
 
     EXPECT_EQ(nalus.size(), 1U);
 
@@ -41,7 +41,7 @@ TEST(test_to_annex_b_nalus, multiple_nalu)
             0x00, 0x00, 0x00, 0x01, 0x12, 0xab
         };
 
-    auto nalus = nalu::to_annex_b_nalus(nalu_data, sizeof(nalu_data));
+    auto nalus = nalu::to_annex_b_nalus(nalu_data, (uint32_t)sizeof(nalu_data));
 
     EXPECT_EQ(nalus.size(), 4U);
 
@@ -82,7 +82,7 @@ TEST(test_to_annex_b_nalus, alternate_startcode_size)
             0x00, 0x00, 0x00, 0x01, 0x12, 0xab
         };
 
-    auto nalus = nalu::to_annex_b_nalus(nalu_data, sizeof(nalu_data));
+    auto nalus = nalu::to_annex_b_nalus(nalu_data, (uint32_t)sizeof(nalu_data));
 
     EXPECT_EQ(nalus.size(), 4U);
 
@@ -113,7 +113,7 @@ TEST(test_to_annex_b_nalus, no_nalu_data)
 
     try
     {
-        auto nalus = nalu::to_annex_b_nalus(nalu_data, sizeof(nalu_data));
+        auto nalus = nalu::to_annex_b_nalus(nalu_data, (uint32_t)sizeof(nalu_data));
     }
     catch (std::system_error& error)
     {
@@ -131,7 +131,7 @@ TEST(test_to_annex_b_nalus, garbage_nalu_data)
 
     try
     {
-        auto nalus = nalu::to_annex_b_nalus(nalu_data, sizeof(nalu_data));
+        auto nalus = nalu::to_annex_b_nalus(nalu_data, (uint32_t)sizeof(nalu_data));
     }
     catch (std::system_error& error)
     {
