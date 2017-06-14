@@ -39,7 +39,7 @@ to_annex_b_nalus(const uint8_t* data, uint32_t size,
     }
 
     // Get information for the first NALU
-    const uint8_t* nalu_start = parser.nalu();
+    auto nalu_start = parser.nalu();
 
     if (nalu_start != data)
     {
@@ -51,7 +51,7 @@ to_annex_b_nalus(const uint8_t* data, uint32_t size,
     {
         // Fetch the start code size before we search for the next NALU
         // in order to find the end.
-        uint32_t start_code_size = parser.start_code_size();
+        auto start_code_size = parser.start_code_size();
 
         // Find the next NALU such that we know where the current ends
         parser.advance();

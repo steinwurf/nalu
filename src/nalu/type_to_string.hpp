@@ -23,9 +23,9 @@ inline std::string type_to_string(nalu::type type)
                 case type::id: return std::string(msg);
 #include "type_tags.hpp"
 #undef NALU_TYPE_TAG
+    default:
+        assert(0 && "Invalid NALU type received!");
+        return "";
     }
-
-    assert(0 && "Invalid NALU type received!");
-    return "";
 }
 }
