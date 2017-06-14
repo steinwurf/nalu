@@ -46,10 +46,11 @@ struct annex_b_nalu
 /// Output operator for the annex_b_nalu struct
 inline std::ostream& operator<<(std::ostream& os, const annex_b_nalu& nalu)
 {
-    os << "nalu::annex_b_nalu: data = " << (void*) nalu.m_data << " "
-       << "size = " << nalu.m_size << " start_code_size = "
-       << nalu.m_start_code_size << " (type = "
-       << type_to_string(nalu.m_type) << ")";
+    os << "annex_b_nalu:" << std::endl
+       << " data = " << (void*) nalu.m_data << std::endl
+       << " size = " << nalu.m_size << std::endl
+       << " start_code_size = " << nalu.m_start_code_size << std::endl
+       << " type = " << type_to_string(nalu.m_type) << std::endl;
 
     return os;
 }

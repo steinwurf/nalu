@@ -20,9 +20,8 @@ namespace nalu
 /// @param data Buffer contaning one or more Annex B encoded NALUs
 /// @param size The size of the buffer in bytes
 /// @return A vector containing the found NALUs
-inline std::vector<annex_b_nalu>
-to_annex_b_nalus(const uint8_t* data, uint32_t size,
-                 std::error_code& error)
+inline std::vector<annex_b_nalu> to_annex_b_nalus(
+    const uint8_t* data, uint32_t size, std::error_code& error)
 {
     assert(data != nullptr);
     assert(size > 0);
@@ -83,8 +82,8 @@ to_annex_b_nalus(const uint8_t* data, uint32_t size,
 
 /// Calls to_annex_b_nalus(...) with an error_code and throws an
 /// exception if an error is set.
-inline std::vector<annex_b_nalu>
-to_annex_b_nalus(const uint8_t* data, uint32_t size)
+inline std::vector<annex_b_nalu> to_annex_b_nalus(
+    const uint8_t* data, uint32_t size)
 {
     assert(data != nullptr);
     assert(size > 0);
