@@ -18,6 +18,15 @@ namespace nalu
 /// Small struct representing an Annex B NALU
 struct annex_b_nalu
 {
+    annex_b_nalu() :
+        m_data(nullptr),
+        m_size(0),
+        m_start_code_size(0),
+        m_type(nalu::type::unspecified0)
+    {
+        assert(!is_valid());
+    }
+
     annex_b_nalu(const uint8_t* data, uint32_t size, uint32_t start_code_size,
                  nalu::type type) :
         m_data(data),
@@ -28,6 +37,26 @@ struct annex_b_nalu
         assert(m_data != nullptr);
         assert(m_size >= m_start_code_size);
         assert(m_start_code_size == 3U || m_start_code_size == 4U);
+    }
+
+    operator bool() const
+    {
+        return is_valid();
+    }
+
+    bool is_valid() const
+    {
+        if (m_data == nullptr)
+            return false;
+
+        if (m_size == 0)
+            return false;
+
+        // A valid start code is either 3 or 4 bytes
+        if (m_start_code_size != 3 && m_start_code_size != 4)
+            return false;
+
+        return true;
     }
 
     /// Pointer to the NALU data

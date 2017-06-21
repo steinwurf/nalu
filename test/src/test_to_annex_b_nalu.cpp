@@ -21,9 +21,10 @@ TEST(test_to_annex_b_nalu, single_nalu)
 
     auto nalu = nalu::to_annex_b_nalu(nalu_data, sizeof(nalu_data));
 
-    EXPECT_EQ(nalu->m_data, nalu_data);
-    EXPECT_EQ(nalu->m_size, 6U);
-    EXPECT_EQ(nalu->m_start_code_size, 4U);
+    EXPECT_EQ(nalu.m_data, nalu_data);
+    EXPECT_EQ(nalu.m_size, 6U);
+    EXPECT_EQ(nalu.m_start_code_size, 4U);
+    EXPECT_TRUE(bool(nalu));
 }
 
 TEST(test_to_annex_b_nalu, no_nalu_data)
@@ -48,6 +49,20 @@ TEST(test_to_annex_b_nalu, no_nalu_data)
 }
 
 TEST(test_to_annex_b_nalu, garbage_nalu_data)
+{
+    static const uint8_t nalu_data[] =
+        {
+            0x01, 0x00, 0x00, 0x01, 0x12, 0xab
+        };
+
+    std::error_code error;
+    auto nalu = nalu::to_annex_b_nalu(nalu_data, sizeof(nalu_data), error);
+    EXPECT_EQ(nalu::error_type::garbage_found_in_nalu_data, error);
+    EXPECT_FALSE(nalu.is_valid());
+    EXPECT_FALSE(bool(nalu));
+}
+
+TEST(test_to_annex_b_nalu, garbage_nalu_data_exception)
 {
     static const uint8_t nalu_data[] =
         {
