@@ -6,6 +6,10 @@ every change, see the Git log.
 
 Latest
 ------
+* tbd
+
+4.0.0
+-----
 * Major: Renamed ``nalu_type_from_header.hpp`` -> ``type_from_header.hpp``.
 * Major: Renamed ``nalu_type_from_header`` -> ``type_from_header``.
 * Major: Renamed ``nalu_type_to_string.hpp`` -> ``type_to_string.hpp``.
