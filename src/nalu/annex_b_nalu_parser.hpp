@@ -49,7 +49,7 @@ struct annex_b_nalu_parser
         m_start(start),
         m_end(start + size),
         m_cursor(start),
-        m_startcode_size(0)
+        m_start_code_size(0)
     {
         assert(m_start);
         assert(m_end);
@@ -72,7 +72,7 @@ struct annex_b_nalu_parser
         // Jump over the start code; When initializing the parser
         // m_cursor equals m_start and the m_start_code is zero - so we
         // start from the beginning
-        m_cursor += m_startcode_size;
+        m_cursor += m_start_code_size;
 
         for (;; ++m_cursor)
         {
@@ -89,7 +89,7 @@ struct annex_b_nalu_parser
 
             if (m_cursor[2] == 0x01)
             {
-                m_startcode_size = 3;
+                m_start_code_size = 3;
                 return;
             }
 
@@ -103,7 +103,7 @@ struct annex_b_nalu_parser
 
             if (m_cursor[3] == 0x01)
             {
-                m_startcode_size = 4;
+                m_start_code_size = 4;
                 return;
             }
         }
@@ -127,9 +127,9 @@ struct annex_b_nalu_parser
     }
 
     /// @return The size of the start code of the current NALU
-    uint32_t startcode_size() const
+    uint32_t start_code_size() const
     {
-        return m_startcode_size;
+        return m_start_code_size;
     }
 
 private:
@@ -145,7 +145,7 @@ private:
     const uint8_t* m_cursor;
 
     /// The size if the current NALU's startcode in bytes
-    uint32_t m_startcode_size;
+    uint32_t m_start_code_size;
 
 };
 }

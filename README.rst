@@ -7,8 +7,8 @@ streams.
 
 The main functionality is located in these header files:
 
-* ``src/nalu/find_annex_b_nalu.hpp``
-* ``src/nalu/find_annex_b_nalus.hpp``
+* ``src/nalu/to_annex_b_nalu.hpp``
+* ``src/nalu/to_annex_b_nalus.hpp``
 * ``src/nalu/annex_b_nalu.hpp``
 
 Usage

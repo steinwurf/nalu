@@ -7,6 +7,8 @@
 
 #pragma once
 
+#include <system_error>
+
 namespace nalu
 {
 /// Small helper function which throws an exception if the error code

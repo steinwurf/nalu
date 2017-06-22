@@ -7,7 +7,9 @@
 
 #pragma once
 
-#include "nalu_type.hpp"
+#include <cstdint>
+
+#include "type.hpp"
 
 namespace nalu
 {
@@ -24,9 +26,9 @@ namespace nalu
 ///
 /// To extract type we use bitmask: 0001 1111 = 0x1F
 ///
-inline nalu_type nalu_type_from_header(uint8_t nalu_header)
+inline type type_from_header(uint8_t nalu_header)
 {
-    uint8_t type = nalu_header & 0x1F;
-    return static_cast<nalu_type>(type);
+    uint8_t nalu_type = nalu_header & 0x1F;
+    return static_cast<type>(nalu_type);
 }
 }

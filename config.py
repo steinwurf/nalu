@@ -55,7 +55,7 @@ if __name__ == '__main__':
             mod = importCode(code, "config_helper")
             # Run the actual config tool from the dynamic module
             mod.config_tool(project_dependencies, project_name)
-        except:
+        except Exception:
             print("Unexpected error:")
             print(traceback.format_exc())
     except Exception as e:

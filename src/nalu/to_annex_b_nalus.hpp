@@ -20,9 +20,8 @@ namespace nalu
 /// @param data Buffer contaning one or more Annex B encoded NALUs
 /// @param size The size of the buffer in bytes
 /// @return A vector containing the found NALUs
-inline std::vector<annex_b_nalu>
-to_annex_b_nalus(const uint8_t* data, uint32_t size,
-                 std::error_code& error)
+inline std::vector<annex_b_nalu> to_annex_b_nalus(
+    const uint8_t* data, uint32_t size, std::error_code& error)
 {
     assert(data != nullptr);
     assert(size > 0);
@@ -39,7 +38,7 @@ to_annex_b_nalus(const uint8_t* data, uint32_t size,
     }
 
     // Get information for the first NALU
-    const uint8_t* nalu_start = parser.nalu();
+    auto nalu_start = parser.nalu();
 
     if (nalu_start != data)
     {
@@ -51,7 +50,7 @@ to_annex_b_nalus(const uint8_t* data, uint32_t size,
     {
         // Fetch the start code size before we search for the next NALU
         // in order to find the end.
-        uint32_t startcode_size = parser.startcode_size();
+        auto start_code_size = parser.start_code_size();
 
         // Find the next NALU such that we know where the current ends
         parser.advance();
@@ -70,14 +69,10 @@ to_annex_b_nalus(const uint8_t* data, uint32_t size,
             nalu_end = data + size;
         }
 
-        annex_b_nalu nalu;
-        nalu.m_data = nalu_start;
-        nalu.m_size = nalu_end - nalu_start;
-        nalu.m_startcode_size = startcode_size;
-        nalu.m_type = nalu_type_from_header(
-            nalu_start[startcode_size]);
+        auto type = type_from_header(nalu_start[start_code_size]);
+        uint32_t size = nalu_end - nalu_start;
 
-        nalus.push_back(nalu);
+        nalus.emplace_back(nalu_start, size, start_code_size, type);
 
         nalu_start = nalu_end;
     }
@@ -87,8 +82,8 @@ to_annex_b_nalus(const uint8_t* data, uint32_t size,
 
 /// Calls to_annex_b_nalus(...) with an error_code and throws an
 /// exception if an error is set.
-inline std::vector<annex_b_nalu>
-to_annex_b_nalus(const uint8_t* data, uint32_t size)
+inline std::vector<annex_b_nalu> to_annex_b_nalus(
+    const uint8_t* data, uint32_t size)
 {
     assert(data != nullptr);
     assert(size > 0);
