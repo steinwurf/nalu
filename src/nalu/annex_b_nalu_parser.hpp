@@ -79,13 +79,15 @@ struct annex_b_nalu_parser
             // Looking for the 3 byte start code, so there must be at
             // least 4 bytes remaining
             if (m_end - m_cursor < 4)
+            {
                 break;
+            }
 
-            if (m_cursor[0] != 0x00)
+            if (m_cursor[0] != 0x00 ||
+                m_cursor[1] != 0x00)
+            {
                 continue;
-
-            if (m_cursor[1] != 0x00)
-                continue;
+            }
 
             if (m_cursor[2] == 0x01)
             {
@@ -94,12 +96,16 @@ struct annex_b_nalu_parser
             }
 
             if (m_cursor[2] != 0x00)
+            {
                 continue;
+            }
 
             // Looking for the 4 byte start code, so there must be at
             // least 5 bytes remaining
             if (m_end - m_cursor < 5)
+            {
                 break;
+            }
 
             if (m_cursor[3] == 0x01)
             {
@@ -116,6 +122,7 @@ struct annex_b_nalu_parser
     /// @return Pointer to the beginning to the current NALU
     const uint8_t* nalu() const
     {
+        assert(!at_end());
         return m_cursor;
     }
 
@@ -129,6 +136,7 @@ struct annex_b_nalu_parser
     /// @return The size of the start code of the current NALU
     uint32_t start_code_size() const
     {
+        assert(!at_end());
         return m_start_code_size;
     }
 

@@ -119,3 +119,13 @@ TEST(test_nalu_annexb_nalu_parser, alternate_start_code_size)
     parser.advance();
     EXPECT_TRUE(parser.at_end());
 }
+
+/// Test that we can alternate NALU startcode size
+TEST(test_nalu_annexb_nalu_parser, four_byte_start_code_for_byte_total)
+{
+    static const uint8_t nalu_data[] = { 0x00, 0x00, 0x00, 0x01 };
+
+    nalu::annex_b_nalu_parser parser(nalu_data, sizeof(nalu_data));
+
+    EXPECT_TRUE(parser.at_end());
+}
