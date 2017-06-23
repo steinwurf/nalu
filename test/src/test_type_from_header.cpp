@@ -26,7 +26,8 @@ TEST(test_type_from_header, api)
     EXPECT_EQ(nalu::type::filler_data, nalu::type_from_header(0x0C));
     EXPECT_EQ(nalu::type::sps_extension, nalu::type_from_header(0x0D));
     EXPECT_EQ(nalu::type::prefix_nal_unit, nalu::type_from_header(0x0E));
-    EXPECT_EQ(nalu::type::subset_sequence_parameter_set, nalu::type_from_header(0x0F));
+    EXPECT_EQ(nalu::type::subset_sequence_parameter_set,
+              nalu::type_from_header(0x0F));
     EXPECT_EQ(nalu::type::depth_parameter_set, nalu::type_from_header(0x10));
     EXPECT_EQ(nalu::type::reserved_17, nalu::type_from_header(0x11));
     EXPECT_EQ(nalu::type::reserved_18, nalu::type_from_header(0x12));

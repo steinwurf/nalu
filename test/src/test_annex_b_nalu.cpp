@@ -8,6 +8,7 @@
 #include <nalu/annex_b_nalu.hpp>
 
 #include <vector>
+#include <regex>
 
 #include <gtest/gtest.h>
 
@@ -27,7 +28,6 @@ TEST(test_annex_b_nalu, constructor)
         EXPECT_EQ(start_code_size, nalu.m_start_code_size);
         EXPECT_EQ(type, nalu.m_type);
     }
-
     // start code size 4
     {
         std::vector<uint8_t> buffer(10);
@@ -46,22 +46,25 @@ TEST(test_annex_b_nalu, constructor)
 
 TEST(test_annex_b_nalu, output_operator)
 {
-    uint8_t* data = (uint8_t*) 0xcaca0caca0;
+    std::vector<uint8_t> buffer(1);
+
     uint32_t size = 1337;
     uint32_t start_code_size = 4;
     nalu::type type = nalu::type::picture_parameter_set;
 
-    nalu::annex_b_nalu nalu(data, size, start_code_size, type);
+    nalu::annex_b_nalu nalu(buffer.data(), size, start_code_size, type);
 
     std::stringstream ss;
     ss << nalu;
+    std::string string_output = ss.str();
 
-    auto expected_string =
+    std::regex nalu_string_regex(
         "annex_b_nalu:\n"
-        " data = 0xcaca0caca0\n"
+        " data = .*\n" // The address is platform dependent
         " size = 1337\n"
         " start_code_size = 4\n"
-        " type = Picture parameter set\n";
-
-    EXPECT_EQ(expected_string, ss.str());
+        " type = Picture parameter set\n");
+    std::smatch match;
+    EXPECT_TRUE(std::regex_search(string_output, match, nalu_string_regex))
+        << string_output;
 }

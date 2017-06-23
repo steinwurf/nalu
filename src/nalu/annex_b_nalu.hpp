@@ -46,15 +46,13 @@ struct annex_b_nalu
 
     bool is_valid() const
     {
-        if (m_data == nullptr)
+        if (m_data == nullptr && m_size == 0 && m_start_code_size == 0)
             return false;
 
-        if (m_size == 0)
-            return false;
-
-        // A valid start code is either 3 or 4 bytes
-        if (m_start_code_size != 3 && m_start_code_size != 4)
-            return false;
+        // If this nalu really is a valid then we can make some assumptions:
+        assert(m_data != nullptr);
+        assert(m_size != 0);
+        assert(m_start_code_size == 3U || m_start_code_size == 4U);
 
         return true;
     }
