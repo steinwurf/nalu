@@ -14,7 +14,7 @@
 
 namespace nalu
 {
-/// @return Human readable message corresponding to an error code
+/// @return Human readable message corresponding to a nalu type
 inline std::string type_to_string(nalu::type type)
 {
     switch (type)

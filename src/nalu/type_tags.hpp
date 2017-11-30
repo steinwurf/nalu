@@ -17,7 +17,7 @@ NALU_TYPE_TAG(4, c_slice, "Coded slice data partition C", "VCL")
 
 NALU_TYPE_TAG(5, idr_slice, "Coded slice of an IDR picture", "VCL")
 
-NALU_TYPE_TAG(6, sei, "Supplemental enhancement information (SEI)", "non-VCL")
+NALU_TYPE_TAG(6, sei, "Supplemental enhancement information", "non-VCL")
 
 NALU_TYPE_TAG(7, sequence_parameter_set, "Sequence parameter set", "non-VCL")
 
