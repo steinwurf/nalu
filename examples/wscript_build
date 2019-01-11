@@ -1,0 +1,6 @@
+
+bld.program(
+    features='cxx',
+    source=['nalu_inspect.cpp'],
+    target='nalu_inspect',
+    use=['boost_iostreams', 'nalu_includes'])
