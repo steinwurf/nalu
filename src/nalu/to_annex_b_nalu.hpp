@@ -1,7 +1,6 @@
 // Copyright Steinwurf ApS 2016.
-// Distributed under the "STEINWURF RESEARCH LICENSE 1.0".
-// See accompanying file LICENSE.rst or
-// http://www.steinwurf.com/licensing
+//
+// Distributed under the "BSD License". See the accompanying LICENSE.rst file.
 
 #pragma once
 
