@@ -7,6 +7,7 @@ every change, see the Git log.
 Latest
 ------
 * Minor: Added CMake build file.
+* Minor: Added inspect example.
 
 4.0.0
 -----
@@ -16,9 +17,10 @@ Latest
 * Major: Renamed ``nalu_type_to_string`` -> ``type_to_string``.
 * Major: Renamed ``nalu_type.hpp`` -> ``type.hpp``.
 * Major: Renamed ``nalu_type`` -> ``type``.
-* Major: ``annex_b_nalu`` now has a two constructors, one for constructing valid
-  nalus and one for constructing invalid nalus. The validity of a nalu can be
-  checked with the ``is_valid`` member function and the ``operator bool()``.
+* Major: ``annex_b_nalu`` now has a two constructors, one for constructing
+  valid nalus and one for constructing invalid nalus. The validity of a nalu
+  can be checked with the ``is_valid`` member function and
+  the ``operator bool()``.
 * Major: Renamed ``annex_b_nalu::startcode_size`` ->
   ``annex_b_nalu::start_code_size``.
 
