@@ -1,9 +1,7 @@
 // Copyright (c) 2016 Steinwurf ApS
 // All Rights Reserved
 //
-// THIS IS UNPUBLISHED PROPRIETARY SOURCE CODE OF STEINWURF
-// The copyright notice above does not evidence any
-// actual or intended publication of such source code.
+// Distributed under the "BSD License". See the accompanying LICENSE.rst file.
 
 #include <fstream>
 #include <iostream>
@@ -32,7 +30,8 @@ int main(int argc, char* argv[])
 
     if (error)
     {
-        std::cout << "Error reading file " << file_path << ": " << error.message() << std::endl;
+        std::cout << "Error reading file " << file_path << ": " << error.message()
+                  << std::endl;
         file.close();
         return 1;
     }
