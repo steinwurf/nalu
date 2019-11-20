@@ -2,6 +2,9 @@
 nalu
 ====
 
+.. image:: https://travis-ci.org/steinwurf/nalu.svg?branch=master
+    :target: https://travis-ci.org/steinwurf/nalu
+    
 The nalu project contains helper functionality for parsing Annex B H264
 streams.
 
