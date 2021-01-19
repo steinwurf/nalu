@@ -6,6 +6,10 @@ every change, see the Git log.
 
 Latest
 ------
+* tbd
+
+4.2.0
+-----
 * Minor: Added install step to CMake.
 
 4.1.0
