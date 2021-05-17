@@ -7,7 +7,7 @@
 
 #include <system_error>
 
-#include "error_type.hpp"
 #include "error_category.hpp"
+#include "error_type.hpp"
 #include "is_error_code_enum.hpp"
 #include "throw_if_error.hpp"

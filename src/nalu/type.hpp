@@ -14,7 +14,7 @@ namespace nalu
 /// http://phk.freebsd.dk/time/20141116.html
 enum class type
 {
-#define NALU_TYPE_TAG(value,id,msg,vcl) id=value,
+#define NALU_TYPE_TAG(value, id, msg, vcl) id = value,
 #include "type_tags.hpp"
 #undef NALU_TYPE_TAG
 };

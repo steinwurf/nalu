@@ -44,9 +44,7 @@ struct annex_b_nalu_parser
     /// @param start The start of the memory buffer we are parsing
     /// @param size The size of the memory buffer in bytes
     annex_b_nalu_parser(const uint8_t* start, uint32_t size) :
-        m_start(start),
-        m_end(start + size),
-        m_cursor(start),
+        m_start(start), m_end(start + size), m_cursor(start),
         m_start_code_size(0)
     {
         assert(m_start);
@@ -81,8 +79,7 @@ struct annex_b_nalu_parser
                 break;
             }
 
-            if (m_cursor[0] != 0x00 ||
-                m_cursor[1] != 0x00)
+            if (m_cursor[0] != 0x00 || m_cursor[1] != 0x00)
             {
                 continue;
             }
@@ -139,7 +136,6 @@ struct annex_b_nalu_parser
     }
 
 private:
-
     /// Start of the memory buffer we are parsing
     const uint8_t* m_start;
 
@@ -152,6 +148,5 @@ private:
 
     /// The size if the current NALU's startcode in bytes
     uint32_t m_start_code_size;
-
 };
 }

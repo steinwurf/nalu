@@ -5,18 +5,15 @@
 
 #include <nalu/annex_b_nalu_parser.hpp>
 
-#include <type_traits>
 #include <gtest/gtest.h>
+#include <type_traits>
 
 /// Test that we terminate if we find nothing
 TEST(test_nalu_annexb_nalu_parser, no_nalus)
 {
-    static const uint8_t nalu_data[] =
-        {
-            0x00, 0x01, 0x00, 0x01, 0x12, 0xab,
-            0x05, 0x00, 0x07, 0x01, 0x12, 0xab,
-            0x00, 0x00, 0x06, 0x01, 0x12, 0xab
-        };
+    static const uint8_t nalu_data[] = {0x00, 0x01, 0x00, 0x01, 0x12, 0xab,
+                                        0x05, 0x00, 0x07, 0x01, 0x12, 0xab,
+                                        0x00, 0x00, 0x06, 0x01, 0x12, 0xab};
 
     nalu::annex_b_nalu_parser parser(nalu_data, sizeof(nalu_data));
 
@@ -29,10 +26,7 @@ TEST(test_nalu_annexb_nalu_parser, no_nalus)
 /// the right address of the NALU plus the size of the start code.
 TEST(test_nalu_annexb_nalu_parser, single_nalu)
 {
-    static const uint8_t nalu_data[] =
-        {
-            0x00, 0x00, 0x00, 0x01, 0x12, 0xab
-        };
+    static const uint8_t nalu_data[] = {0x00, 0x00, 0x00, 0x01, 0x12, 0xab};
 
     nalu::annex_b_nalu_parser parser(nalu_data, sizeof(nalu_data));
 
@@ -47,13 +41,10 @@ TEST(test_nalu_annexb_nalu_parser, single_nalu)
 /// Test that we can find multiple NALUs
 TEST(test_nalu_annexb_nalu_parser, multiple_nalu)
 {
-    static const uint8_t nalu_data[] =
-        {
-            0x00, 0x00, 0x00, 0x01, 0x12, 0xab,
-            0x00, 0x00, 0x00, 0x01, 0x12, 0xab,
-            0x00, 0x00, 0x01, 0x12, 0xab,        // <- 3 byte start code
-            0x00, 0x00, 0x00, 0x01, 0x12, 0xab
-        };
+    static const uint8_t nalu_data[] = {
+        0x00, 0x00, 0x00, 0x01, 0x12, 0xab, 0x00, 0x00, 0x00,
+        0x01, 0x12, 0xab, 0x00, 0x00, 0x01, 0x12, 0xab, // <- 3 byte start code
+        0x00, 0x00, 0x00, 0x01, 0x12, 0xab};
 
     nalu::annex_b_nalu_parser parser(nalu_data, sizeof(nalu_data));
 
@@ -86,16 +77,11 @@ TEST(test_nalu_annexb_nalu_parser, multiple_nalu)
 /// Test that we can alternate NALU startcode size
 TEST(test_nalu_annexb_nalu_parser, alternate_start_code_size)
 {
-    static const uint8_t nalu_data[] =
-        {
-            0x00, 0x00, 0x01, 0x12, 0xab,
-            0x00, 0x00, 0x00, 0x01, 0x12, 0xab,
-            0x00, 0x00, 0x01, 0x12, 0xab,
-            0x00, 0x00, 0x00, 0x01, 0x12, 0xab
-        };
+    static const uint8_t nalu_data[] = {
+        0x00, 0x00, 0x01, 0x12, 0xab, 0x00, 0x00, 0x00, 0x01, 0x12, 0xab,
+        0x00, 0x00, 0x01, 0x12, 0xab, 0x00, 0x00, 0x00, 0x01, 0x12, 0xab};
 
     nalu::annex_b_nalu_parser parser(nalu_data, sizeof(nalu_data));
-
 
     EXPECT_EQ(parser.start_code_size(), 3U);
 
@@ -121,7 +107,7 @@ TEST(test_nalu_annexb_nalu_parser, alternate_start_code_size)
 /// Test that we can alternate NALU startcode size
 TEST(test_nalu_annexb_nalu_parser, four_byte_start_code_for_byte_total)
 {
-    static const uint8_t nalu_data[] = { 0x00, 0x00, 0x00, 0x01 };
+    static const uint8_t nalu_data[] = {0x00, 0x00, 0x00, 0x01};
 
     nalu::annex_b_nalu_parser parser(nalu_data, sizeof(nalu_data));
 

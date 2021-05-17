@@ -6,8 +6,8 @@
 #pragma once
 
 #include <cassert>
-#include <system_error>
 #include <string>
+#include <system_error>
 
 #include "error_type.hpp"
 
@@ -17,7 +17,6 @@ namespace nalu
 class error_category : public std::error_category
 {
 public:
-
     /// @return The name of the category
     const char* name() const noexcept override
     {
@@ -29,8 +28,9 @@ public:
     {
         switch (static_cast<error_type>(ev))
         {
-#define NALU_ERROR_TAG(id,msg)    \
-                    case error_type::id: return std::string(msg);
+#define NALU_ERROR_TAG(id, msg) \
+    case error_type::id:        \
+        return std::string(msg);
 #include "error_tags.hpp"
 #undef NALU_ERROR_TAG
         }

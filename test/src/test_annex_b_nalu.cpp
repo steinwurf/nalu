@@ -5,8 +5,8 @@
 
 #include <nalu/annex_b_nalu.hpp>
 
-#include <vector>
 #include <regex>
+#include <vector>
 
 #include <gtest/gtest.h>
 
@@ -18,8 +18,8 @@ TEST(test_annex_b_nalu, constructor)
         uint32_t start_code_size = 3;
         nalu::type type = nalu::type::idr_slice;
 
-        nalu::annex_b_nalu nalu(
-            buffer.data(), buffer.size(), start_code_size, type);
+        nalu::annex_b_nalu nalu(buffer.data(), buffer.size(), start_code_size,
+                                type);
 
         EXPECT_EQ(buffer.data(), nalu.m_data);
         EXPECT_EQ(buffer.size(), nalu.m_size);
@@ -32,8 +32,8 @@ TEST(test_annex_b_nalu, constructor)
         uint32_t start_code_size = 4;
         nalu::type type = nalu::type::sequence_parameter_set;
 
-        nalu::annex_b_nalu nalu(
-            buffer.data(), buffer.size(), start_code_size, type);
+        nalu::annex_b_nalu nalu(buffer.data(), buffer.size(), start_code_size,
+                                type);
 
         EXPECT_EQ(buffer.data(), nalu.m_data);
         EXPECT_EQ(buffer.size(), nalu.m_size);

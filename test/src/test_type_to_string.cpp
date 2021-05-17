@@ -9,7 +9,7 @@
 
 TEST(test_type_to_string, api)
 {
-#define NALU_TYPE_TAG(value,id,msg,vcl) \
+#define NALU_TYPE_TAG(value, id, msg, vcl) \
     EXPECT_EQ(msg, nalu::type_to_string(nalu::type::id));
 #include <nalu/type_tags.hpp>
 #undef NALU_TYPE_TAG

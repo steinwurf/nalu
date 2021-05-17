@@ -15,7 +15,7 @@ namespace nalu
 ///
 enum class error_type
 {
-#define NALU_ERROR_TAG(id,msg) id,
+#define NALU_ERROR_TAG(id, msg) id,
 #include "error_tags.hpp"
 #undef NALU_ERROR_TAG
 };
