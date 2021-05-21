@@ -17,8 +17,9 @@ inline std::string type_to_string(nalu::type type)
 {
     switch (type)
     {
-#define NALU_TYPE_TAG(value,id,msg,vcl)      \
-                case nalu::type::id: return std::string(msg);
+#define NALU_TYPE_TAG(value, id, msg, vcl) \
+    case nalu::type::id:                   \
+        return std::string(msg);
 #include "type_tags.hpp"
 #undef NALU_TYPE_TAG
     }

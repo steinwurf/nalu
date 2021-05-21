@@ -5,8 +5,8 @@
 
 #pragma once
 
-#include "error_type.hpp"
 #include "error_category.hpp"
+#include "error_type.hpp"
 
 namespace nalu
 {

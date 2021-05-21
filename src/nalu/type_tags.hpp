@@ -43,7 +43,8 @@ NALU_TYPE_TAG(17, reserved_17, "Reserved 17", "non-VCL")
 NALU_TYPE_TAG(18, reserved_18, "Reserved 18", "non-VCL")
 
 NALU_TYPE_TAG(19, auxiliary_slice,
-              "Coded slice of an auxiliary coded picture without partitioning", "non-VCL")
+              "Coded slice of an auxiliary coded picture without partitioning",
+              "non-VCL")
 
 NALU_TYPE_TAG(20, extension, "Coded slice extension", "non-VCL")
 

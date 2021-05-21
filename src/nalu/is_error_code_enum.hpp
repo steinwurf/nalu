@@ -14,5 +14,7 @@ namespace std
 {
 /// Reference: http://bit.ly/1RCq7ts
 template <>
-struct is_error_code_enum<nalu::error_type> : public true_type {};
+struct is_error_code_enum<nalu::error_type> : public true_type
+{
+};
 }
